@@ -59,6 +59,32 @@ Explore ways to handle cases where multiple pairs have a sum of zero.
 
 The `findSumZero` function takes a sorted array as input and efficiently searches for the first pair of elements whose sum is zero. The algorithm employs a two-pointer approach to traverse the array and find the pair.
 
+## Usage
+
+```javascript
+//checking first sum zero pair
+function findSumZero(array) {
+  let left = 0;
+  let right = array.length - 1;
+
+  while (left < right) {
+    sum = array[left] + array[right];
+    if (sum === 0) {
+      return [array[left], array[right]];
+    } else if (sum > 0) {
+      right--;
+    } else {
+      left++;
+    }
+  }
+}
+
+const result = findSumZero([-5, -4, -3, -2, 0, 2, 4, 6, 8]);
+console.log(result);
+const result = findSumZero([-5, -4, -3, -2, 0, 2, 4, 6, 8]);
+console.log(result); // Output: [-4, 4]
+```
+
 ## Approach
 
 1. **Initialize Pointers:**
@@ -86,10 +112,3 @@ For the input array `[-5, -4, -3, -2, 0, 2, 4, 6, 8]`:
 
 - The function will find the pair `[-4, 4]` because `(-4) + 4 = 0`.
 - The pointers move towards each other until the sum is found.
-
-## Usage
-
-```javascript
-const result = findSumZero([-5, -4, -3, -2, 0, 2, 4, 6, 8]);
-console.log(result); // Output: [-4, 4]
-```
