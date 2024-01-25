@@ -113,3 +113,34 @@ For the input array `[-5, -4, -3, -2, 0, 2, 4, 6, 8]`:
 
 - The function will find the pair `[-4, 4]` because `(-4) + 4 = 0`.
 - The pointers move towards each other until the sum is found.
+
+# Day -> 3
+
+# Anagram Checker
+
+This is a simple JavaScript function that checks if two input strings are anagrams of each other.
+
+## Function
+
+The function `isAnagram(str1, str2)` takes two strings as input and returns `true` if they are anagrams and `false` otherwise.
+
+## How It Works
+
+1. The function first checks if the lengths of the two strings are different. If they are, it immediately returns `false` because anagrams must have the same number of letters.
+
+2. It then creates an empty object to keep track of the frequency of each letter in the first string.
+
+3. The function then iterates over each letter in the first string, incrementing the corresponding count in the object.
+
+4. Next, the function iterates over each letter in the second string. If a letter in the second string is not in the object or its count is 0, it means that the second string contains a letter that is not in the first string or it has more of a certain letter than the first string does. In either case, the function returns `false`.
+
+5. If a letter in the second string is in the object, the function decrements the count in the object.
+
+6. If the function has not returned `false` after checking all the letters in the second string, it means that the two strings are anagrams, so it returns `true`.
+
+## Example Usage
+
+```javascript
+const check = isAnagram("hello", "llheo");
+console.log(check); // Output: true
+```
